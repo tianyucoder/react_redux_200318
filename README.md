@@ -4,3 +4,7 @@
 						(1).public/index.html (备注要写一个root节点,例如：<div id="root"></div>)
 						(2).src/App.js  ————————“外壳”组件
 						(3).src/index.js ———————— 入口文件
+						
+## 2.求和案例——纯react版本
+			(1).编码：components/Count.jsx
+			(2).写好四个方法：加、减、奇数加、延迟加
