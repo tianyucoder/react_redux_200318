@@ -17,4 +17,9 @@
 							-redux
 								-store.js
 								-count_reducer.js
-			(4).
+			(4).编写count_reducer.js,具体代码请参考文件
+			(5).编写store.js，注意：store要靠createStore创建，createStore调用时要传入reducer
+			(6).Count组件中，引入store，用于读取、更新redux中的状态
+						1).读：store.getState()
+						2).写：store.dispatch({type:?????,data:??????})
+			(7).去index.js中检测redux的变化，若变化，重新渲染App
