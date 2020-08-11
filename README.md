@@ -23,3 +23,9 @@
 						1).读：store.getState()
 						2).写：store.dispatch({type:?????,data:??????})
 			(7).去index.js中检测redux的变化，若变化，重新渲染App
+
+## 4.求和案例——redux完整版
+			(1).创建文件：src/redux/constant.js ——————配置action中type的常量
+			(2).创建文件：src/redux/count_action.js ——————用于创建Count组件相关的action对象
+			(3).在count_reducer.js 和 Count.jsx 里使用常量
+			(4).在Count.jsx中使用第二步创建的actionCreator
