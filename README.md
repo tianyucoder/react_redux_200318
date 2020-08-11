@@ -35,3 +35,15 @@
 			(2).修改store.js
 						import {createStore,applyMiddleware} from 'redux'
 						import thunk from 'redux-thunk'
+						const store = createStore(countReducer,applyMiddleware(thunk))
+		  (3).创建异步action
+						//创建【等一等】再加的action
+						export const incrementWaitAction = number => {
+							return (dispatch) => {
+								//这里我们用一个setTimeout模拟了一个异步代码，以后就是真实的ajax请求了
+								setTimeout(()=>{
+									//调用同步action——incrementAction实现加
+									dispatch(incrementAction(number))
+								},500)
+							}
+						}
