@@ -19,22 +19,18 @@ export default class Count extends Component {
 	decrement = ()=>{
 		//1.获取用户输入
 		const {value} = this.refs.selectedNumber
-		//2.获取原状态
-		//const {count} = this.state
-		//3.执行加法后，更新状态
-		//this.setState({count:count - value*1})
+		//2.通知redux减value
+		store.dispatch({type:'decrement',data:value*1})
 	}
 
 	//当前求和为奇数，再加
 	incrementIfOdd = ()=>{
-		//if(this.state.count % 2 !== 0){
+		if(store.getState() % 2 !== 0){
 			//1.获取用户输入
 			const {value} = this.refs.selectedNumber
-			//2.获取原状态
-			//const {count} = this.state
-			//3.执行加法后，更新状态
-			//this.setState({count:count + value*1})
-		//}
+			//2.通知redux加value
+			store.dispatch({type:'increment',data:value*1})
+		}
 	}
 
 	//等一等再加
@@ -42,10 +38,8 @@ export default class Count extends Component {
 		setTimeout(()=>{
 			//1.获取用户输入
 			const {value} = this.refs.selectedNumber
-			//2.获取原状态
-			//const {count} = this.state
-			//3.执行加法后，更新状态
-			//this.setState({count:count + value*1})
+			//2.通知redux减value
+			store.dispatch({type:'increment',data:value*1})
 		},500)
 	}
 

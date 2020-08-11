@@ -7,7 +7,6 @@ const initState = 0
  * @param {*} action 动作对象，包含:type、data
  */
 function countReducer (preState=initState,action){
-	console.log(preState,action);
 	/* 
 		若初次调用：
 				(1).preState是undefined，action是内置的一个动作，形如：{type: "@@redux/INITf.4.s.p.r.8"}
