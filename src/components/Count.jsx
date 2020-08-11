@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {incrementAction,decrementAction} from '../redux/count_action'
+import {incrementAction,decrementAction,incrementWaitAction} from '../redux/count_action'
 
 export default class Count extends Component {
 	
@@ -35,12 +35,10 @@ export default class Count extends Component {
 
 	//等一等再加
 	incrementWait = ()=>{
-		setTimeout(()=>{
-			//1.获取用户输入
-			const {value} = this.refs.selectedNumber
-			//2.通知redux减value
-			this.props.store.dispatch(incrementAction(value*1))
-		},500)
+		//1.获取用户输入
+		const {value} = this.refs.selectedNumber
+		//2.通知redux减value
+		this.props.store.dispatch(incrementWaitAction(value*1))
 	}
 
 	render() {

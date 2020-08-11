@@ -29,3 +29,9 @@
 			(2).创建文件：src/redux/count_action.js ——————用于创建Count组件相关的action对象
 			(3).在count_reducer.js 和 Count.jsx 里使用常量
 			(4).在Count.jsx中使用第二步创建的actionCreator
+
+## 5.异步action的使用
+			(1).安装依赖包：yarn add redux-thunk
+			(2).修改store.js
+						import {createStore,applyMiddleware} from 'redux'
+						import thunk from 'redux-thunk'
