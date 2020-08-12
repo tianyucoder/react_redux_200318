@@ -1,5 +1,5 @@
 //次文件是定义为Count组件服务的reducer(reducer中最好不要写业务逻辑)
-import {INCREMENT,DECREMENT} from './constant'
+import {INCREMENT,DECREMENT} from '../constant'
 
 const initState = 0
 /**

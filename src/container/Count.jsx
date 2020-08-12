@@ -6,7 +6,7 @@ import {
 	incrementAction,
 	decrementAction,
 	incrementWaitAction
-} from '../redux/count_action'
+} from '../redux/actions/count'
 
 //定义Count的UI组件
 class Count extends Component {
@@ -53,7 +53,7 @@ class Count extends Component {
 		// console.log('CountUI组件接收到的props:',this.props);
 		return (
 			<div>
-				<h1>{this.state.school}-当前求和为:{this.props.count}</h1>
+				<h1>{this.state.school}-当前求和为:{this.props.count},下方组件总人数为：{this.props.persons.length}</h1>
 				<select ref="selectedNumber">
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -70,7 +70,11 @@ class Count extends Component {
 
 //暴露connect()()生成的容器组件
 export default connect(
-	state => ({count:state}),
+	//state是redux中的总状态对象
+	state => ({
+		count:state.he,
+		persons:state.rens
+	}),
 	{
 		increment:incrementAction,
 		decrement:decrementAction,

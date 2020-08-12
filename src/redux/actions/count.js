@@ -7,7 +7,7 @@
 		备注：异步action中一般会调用同步action
 */
 
-import {INCREMENT,DECREMENT} from './constant'
+import {INCREMENT,DECREMENT} from '../constant'
 //创建加的action
 export const incrementAction = number => ({type:INCREMENT,data:number})
 
