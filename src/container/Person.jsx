@@ -12,7 +12,7 @@ class Person extends Component {
 			return
 		}
 		//通知redux添加一个人
-		this.props.addRen({id:Date.now(),name,age})
+		this.props.addPerson({id:Date.now(),name,age})
 		//清空
 		this.refs.nameNode.value = ''
 		this.refs.ageNode.value = ''
@@ -43,10 +43,10 @@ class Person extends Component {
 
 export default connect(
 	(state)=>({//映射状态
-		count:state.he,
-		persons:state.rens
+		count:state.count,
+		persons:state.persons
 	}),
 	{//映射操作状态的方法
-		addRen:addpersonAction
+		addPerson:addpersonAction
 	}
 )(Person)
