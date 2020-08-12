@@ -62,5 +62,50 @@
 			(2).创建容器组件：src/container/Count.jsx，代码如下：
 						import CountUI from '../components/Count'
 						import {connect} from 'react-redux'
-						export default connect(mapStateToProps)(CountUI)
-			
+
+						//映射状态为props
+						function mapStateToProps (state){
+							//由于props接收到的参数，都会收集成对象，所以demo1必须返回一个对象
+							return {count:state} //return的这个对象，最终会整合到UI组件的this.props对象
+						}
+
+						//映射操作状态的方法
+						function mapDispatchToProps(dispatch){
+							return {
+								increment:(number)=>{dispatch(incrementAction(number))},
+								decrement:(number)=>{dispatch(decrementAction(number))},
+								incrementWait:(number)=>{dispatch(incrementWaitAction(number))},
+							}
+						}
+
+						export default connect(mapStateToProps,mapDispatchToProps)(CountUI)
+			(3).UI组件中：
+								读状态：this.props.xxxxxx
+								操作状态：this.props.yyyyyyy(value)
+
+## 8.react-redux优化：
+				1.优化容器组件：
+						export default connect(
+						state => ({count:state}),
+						{
+							increment:incrementAction,
+							decrement:decrementAction,
+							incrementWait:incrementWaitAction,
+						}
+					)(CountUI)
+				2.优化index.js，使用Provider批量传递
+						<Provider store={store}>
+							<App/>
+						</Provider>
+
+
+## 9.整个容器组件与UI组件
+			一个组件要和redux打交道，需要做的是：
+					(1).引入connect
+					(2).引入用于支撑业务逻辑的action
+					(3).暴露connect(
+								(state)=>({xxxxx:state}),
+								{
+									xxxxx:xxxxxAction,
+								}
+							)(UI组件)的结果
