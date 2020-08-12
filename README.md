@@ -56,4 +56,6 @@
 						站在react-redux的角度：
 									(1).UI组件：组件中不允许使用任何redux相关的API————只负责展示界面
 									(2).容器组件：组件中可以随意的使用任何redux相关的API————只负责与redux交互
-							
+
+## 7.react-redux的使用方式
+			(1).把原来的Count组件，删成UI组件

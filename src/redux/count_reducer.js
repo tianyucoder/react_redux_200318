@@ -1,7 +1,7 @@
 //次文件是定义为Count组件服务的reducer(reducer中最好不要写业务逻辑)
 import {INCREMENT,DECREMENT} from './constant'
 
-const initState = 0
+const initState = 900
 /**
  * countReducer专门用于加工Count组件的状态
  * @param {*} preState 第一次调用传入的是undefined，第二次传入的是之前的状态

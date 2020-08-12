@@ -1,5 +1,10 @@
+/* 
+	该文件为Count的UI组件：
+			1.不允许写任何redux相关的api
+			2.它会等得到其容器组件(父组件)传递过来的：状态、操作状态的方法
+*/
 import React, { Component } from 'react'
-import {incrementAction,decrementAction,incrementWaitAction} from '../redux/count_action'
+//import {incrementAction,decrementAction,incrementWaitAction} from '../redux/count_action'
 
 export default class Count extends Component {
 	
@@ -12,7 +17,7 @@ export default class Count extends Component {
 		//1.获取用户输入
 		const {value} = this.refs.selectedNumber
 		//2.通知redux加value
-		this.props.store.dispatch(incrementAction(value*1))
+		//this.props.store.dispatch(incrementAction(value*1))
 	}
 
 	//减
@@ -20,17 +25,17 @@ export default class Count extends Component {
 		//1.获取用户输入
 		const {value} = this.refs.selectedNumber
 		//2.通知redux减value
-		this.props.store.dispatch(decrementAction(value*1))
+		//this.props.store.dispatch(decrementAction(value*1))
 	}
 
 	//当前求和为奇数，再加
 	incrementIfOdd = ()=>{
-		if(this.props.store.getState() % 2 !== 0){
+		//if(this.props.store.getState() % 2 !== 0){
 			//1.获取用户输入
 			const {value} = this.refs.selectedNumber
 			//2.通知redux加value
-			this.props.store.dispatch(incrementAction(value*1))
-		}
+			//this.props.store.dispatch(incrementAction(value*1))
+		//}
 	}
 
 	//等一等再加
@@ -38,13 +43,14 @@ export default class Count extends Component {
 		//1.获取用户输入
 		const {value} = this.refs.selectedNumber
 		//2.通知redux减value
-		this.props.store.dispatch(incrementWaitAction(value*1))
+		//this.props.store.dispatch(incrementWaitAction(value*1))
 	}
 
 	render() {
+		console.log('CountUI组件接收到的props:',this.props);
 		return (
 			<div>
-				<h1>{this.state.school}-当前求和为：{this.props.store.getState()}</h1>
+				<h1>{this.state.school}-当前求和为:{this.props.count}</h1>
 				<select ref="selectedNumber">
 					<option value="1">1</option>
 					<option value="2">2</option>
