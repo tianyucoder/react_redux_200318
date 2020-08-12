@@ -115,9 +115,9 @@
 						1.创建文件与文件夹：
 								-redux
 										-actions
-												count.js
+												count.js ====>前身count_action.js
 										-reducers
-												count.js
+												count.js ====>前身count_reducer.js
 						2.“地毯式”搜索，改引入路径
 						3.重新启动，保证案例正常显示
 		二、添加Person
@@ -130,7 +130,7 @@
 													person.js ====> 内容模仿reducers/count.js
 						3.修改store.js
 									(1).引入combineReducers用于汇总所有reducer
-													import {combineReducers} from 'redux'
+												import {combineReducers} from 'redux'
 									(2).汇总所有reducer
 												const allReducer = combineReducers({
 													he:countReducer,
