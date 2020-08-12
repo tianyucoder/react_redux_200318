@@ -138,3 +138,11 @@
 												}) 
 									(3).备注：combineReducers传入的对象就是总的状态对象
 									(4).修改容器组件：Count、Person中接收state的地方，取出想要的数据
+
+## 11.开发者工具的使用：
+		(1).安装依赖
+					yarn add redux-devtools-extension
+		(2).store中的配置	
+					import {composeWithDevTools} from 'redux-devtools-extension'
+					const store = createStore(reducer,composeWithDevTools(applyMiddleware(thunk)))
+				
