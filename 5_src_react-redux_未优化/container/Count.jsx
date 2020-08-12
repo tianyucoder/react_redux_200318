@@ -20,6 +20,7 @@ function mapStateToProps (state){
 
 //映射操作状态的方法
 function mapDispatchToProps(dispatch){
+	//return的这个对象，最终会整合到UI组件的this.props对象
 	return {
 		increment:(number)=>{dispatch(incrementAction(number))},
 		decrement:(number)=>{dispatch(decrementAction(number))},
