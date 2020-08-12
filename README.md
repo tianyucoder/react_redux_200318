@@ -59,3 +59,8 @@
 
 ## 7.react-redux的使用方式
 			(1).把原来的Count组件，删成UI组件
+			(2).创建容器组件：src/container/Count.jsx，代码如下：
+						import CountUI from '../components/Count'
+						import {connect} from 'react-redux'
+						export default connect(mapStateToProps)(CountUI)
+			
