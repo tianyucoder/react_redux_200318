@@ -111,5 +111,30 @@
 							)(UI组件)的结果
 
 ## 10.模块化编码
-		1.创建文件夹，指定位置
-		2.“地毯式”搜索，改引入路径
+		一、改成模块化标准：
+						1.创建文件与文件夹：
+								-redux
+										-actions
+												count.js
+										-reducers
+												count.js
+						2.“地毯式”搜索，改引入路径
+						3.重新启动，保证案例正常显示
+		二、添加Person
+						1.constant.js中配置 添加一个人的常量：ADD_PERSON
+						2.创建文件：
+								-redux
+											-actions
+													person.js ====> 内容模仿actions/count.js
+											-reducers
+													person.js ====> 内容模仿reducers/count.js
+						3.修改store.js
+									(1).引入combineReducers用于汇总所有reducer
+													import {combineReducers} from 'redux'
+									(2).汇总所有reducer
+												const allReducer = combineReducers({
+													he:countReducer,
+													rens:personReducer
+												}) 
+									(3).备注：combineReducers传入的对象就是总的状态对象
+									(4).修改容器组件：Count、Person中接收state的地方，取出想要的数据
