@@ -37,7 +37,7 @@ export default connect(mapStateToProps,mapDispatchToProps)(CountUI)
 					1.connect是一个函数，调用connect的返回值依然是一个函数。
 					2.connect()()返回值是一个容器组件
 					3.用法: 
-						const 容器组件 = connect(mapStateToProps,)(UI组件)
+						const 容器组件 = connect(mapStateToProps,mapDispatchToProps/obj)(UI组件)
 */
 
 
