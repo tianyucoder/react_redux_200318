@@ -75,8 +75,8 @@ class Count extends Component {
 export default connect(
 	//state是redux中的总状态对象
 	state => ({
-		count:state.he,
-		persons:state.rens
+		count:state.count,
+		persons:state.persons
 	}),
 	{
 		increment:incrementAction,
