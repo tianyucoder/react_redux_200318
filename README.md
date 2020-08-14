@@ -175,3 +175,40 @@
 					);
 		(6).安装：yarn add babel-plugin-import
 
+
+## 14.antd自定义主题颜色:
+		观察发现：react官方脚手架，默认没有配置编译less
+		(1).安装：yarn add less less-loader
+		(2).修改：config-overrides.js:
+					const { override, fixBabelImports,addLessLoader } = require('customize-cra');
+					module.exports = override(
+						fixBabelImports('import', {
+							libraryName: 'antd',
+							libraryDirectory: 'es',
+							style: true,
+						}),
+						addLessLoader({
+							lessOptions:{
+									javascriptEnabled: true,
+									modifyVars: { '@primary-color': 'orange' }
+							}
+						}),
+					);
+## 15.react官方脚手架配置装饰器语法解析
+					(1).安装依赖：@babel/plugin-proposal-decorators
+					(2).更改：config-overrides.js文件：
+							const { override, fixBabelImports,addLessLoader,addDecoratorsLegacy} = require('customize-cra');
+							module.exports = override(
+								fixBabelImports('import', {
+									libraryName: 'antd',
+									libraryDirectory: 'es',
+									style: true,
+								}),
+								addLessLoader({
+									lessOptions:{
+											javascriptEnabled: true,
+											modifyVars: { '@primary-color': 'orange' }
+									}
+								}),
+								addDecoratorsLegacy()
+							);
