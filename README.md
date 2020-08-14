@@ -146,3 +146,32 @@
 					import {composeWithDevTools} from 'redux-devtools-extension'
 					const store = createStore(reducer,composeWithDevTools(applyMiddleware(thunk)))
 				
+## 12.antd的基本使用
+		(1).安装antd：yarn add antd
+		(2).引入你要使用的组件
+					import {Input,Button} from 'antd'
+		(3).引入antd样式：
+					import 'antd/dist/antd.css'
+
+## 13.antd样式的按需引入
+		(1).删掉import 'antd/dist/antd.css'
+		(2).文档切换为3.x版本
+		(3).yarn add react-app-rewired customize-cra
+		(4).修改package.json
+				"scripts": {
+					"start": "react-app-rewired start",
+					"build": "react-app-rewired build",
+					"test": "react-app-rewired test",
+					"eject": "react-scripts eject"
+				},
+		(5).建立config-overrides.js
+					const { override, fixBabelImports } = require('customize-cra');
+					module.exports = override(
+						fixBabelImports('import', {
+							libraryName: 'antd',
+							libraryDirectory: 'es',
+							style: 'css',
+						}),
+					);
+		(6).安装：yarn add babel-plugin-import
+
